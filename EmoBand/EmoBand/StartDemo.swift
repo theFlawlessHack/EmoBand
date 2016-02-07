@@ -1,30 +1,25 @@
 //
-//  ViewController.swift
+//  StartDemo.swift
 //  EmoBand
 //
 //  Created by Jessica Joseph on 2/6/16.
 //  Copyright © 2016 Jessica Joseph. All rights reserved.
 //
 
+
 import UIKit
 
-class ViewController: UIViewController {
+class StartDemo: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var `continue`: UIButton!
-    @IBOutlet weak var connected: UILabel!
-    @IBOutlet weak var connecting: UILabel!
-    
-    @IBAction func connect(sender: AnyObject) {
-        connecting.hidden = false
+    @IBOutlet var myTextField : UITextField!
 
-        connected.hidden = false
-        sleep(1)
-        `continue`.hidden = false
-        
-    }
+//    @IBOutlet weak var fem: UIButton!
+//    @IBOutlet weak var ma: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        myTextField.delegate = self;
 
     }
     
@@ -33,7 +28,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
+  
 }
-
